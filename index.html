@@ -31,7 +31,8 @@
       <textarea id="descricao"></textarea>
 
       <label>
-        <input type="checkbox" id="termos">Confirma as informações a serem enviadas?
+        <input type="checkbox" id="termos" />Confirma as informações a serem
+        enviadas?
       </label>
 
       <button type="submit">Enviar</button>
@@ -39,7 +40,12 @@
     </form>
 
     <script>
-        const form = document.getElementById('form-inspecao')
+      const form = document.getElementById("form-inspecao");
+      const mensagem = document.getElementById("mensagem");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+      });
     </script>
   </body>
 </html>
