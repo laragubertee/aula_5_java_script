@@ -14,7 +14,8 @@
       <label for="email">E-mail</label>
       <input type="email" id="email" name="email" />
 
-      <label for="setor">Setor</label>
+      <label for="setor">Set
+        or</label>
       <select id="setor">
         <option value="">Selecione</option>
         <option value="operacao">Operação</option>
@@ -45,6 +46,45 @@
 
       form.addEventListener("submit", function (event) {
         event.preventDefault();
+
+        const nome = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const setor = document.getElementById("setor").value;
+        const descricao = document.getElementById("descricao").value.trim();
+        const termos = document.getElementById("termos").checked;
+        const prioridade = document.querySelector('input[name="prioridade"]:checked');
+
+        if (nome === "") {
+          mensagem.textContent = 'Preencha o nome';
+          return;
+        }
+
+        if (email === "") {
+          mensagem.textContent = 'Preencha o e-mail.';
+          return;
+        }
+
+        if (setor === "") {
+          mensagem.textContent = 'Selecione um setor.';
+          return;
+        }
+
+        if (!prioridade) {
+          mensagem.textContent = 'Selecione uma prioridade.';
+          return;
+        }
+
+        if (descricao.length < 10) {
+          mensagem.textContent = 'A descrição deve ter pelo menos 10 caracteres.';
+          return;
+        }
+
+        if(!termos){
+          mensagem.textContent = 'Marque a confirmação dos dados.';
+          return;
+        }
+
+        mensagem.textContent = 'Formulário validado com sucesso';
       });
     </script>
   </body>
